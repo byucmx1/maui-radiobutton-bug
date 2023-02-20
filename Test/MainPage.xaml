@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Test"
+             x:Class="Test.MainPage">
+
+    <Grid Margin="10">
+        <CollectionView>
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type local:Person}">
+                    <local:Person Id="1" Name="Steve" Age="21" Location="USA" />
+                    <local:Person Id="2" Name="John" Age="37" Location="USA" />
+                    <local:Person Id="3" Name="Tom" Age="42" Location="UK" />
+                    <local:Person Id="4" Name="Lucas" Age="29" Location="Germany" />
+                    <local:Person Id="5" Name="Tariq" Age="39" Location="UK" />
+                    <local:Person Id="6" Name="Jane" Age="30" Location="USA" />
+                </x:Array>
+            </CollectionView.ItemsSource>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,*">
+                        <Label Grid.Column="0" Text="{Binding Name}" FontAttributes="Bold" VerticalTextAlignment="Start" />
+                        <VerticalStackLayout Grid.Column="1" RadioButtonGroup.GroupName="{Binding Id}">
+                            <RadioButton Content="Blue" Value="Blue"/>
+                            <RadioButton Content="Green" Value="Green"/>
+                            <RadioButton Content="Red" Value="Red"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
+
